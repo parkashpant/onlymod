@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body_block %}
+    <div class="container">
+        <div class="jumbotron">
+            {% if user.is_authenticated %}
+            <h1>My Account</h1>
+            <h3>First Name: {{user.first_name}}</h3>
+            <h3>Last Name: {{user.last_name}}</h3>
+            <h3>Username: {{user.username}}</h3>
+            <h3>Email: {{user.email}}</h3><br>
+            {% endif %}
+
+            {% if prof_update %}
+                <h1>Thank you! Your profile has been updated.</h1>
+                <div>
+                    <h3>The profile URL is {{profile_data.linkedin_url}}</h3>
+                </div>
+            {% else %}
+                <!-- <h1>My Account</h1> -->
+                <h2>Please fill or update your profile.</h2>
+                <form enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                {{ profile_form.as_p }}
+                <input type="submit" name="" value="Update">
+                </form>
+            {% endif %}
+        </div>
+    </div>
+
+  
+{% endblock %}
