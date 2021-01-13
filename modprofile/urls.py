@@ -4,6 +4,7 @@ from . import views
 app_name = 'modprofile'
 
 urlpatterns=[
-    path('user_profile', views.user_profile, name='user_profile'),
-
+    path('view_profile', views.view_profile, name='view_profile'),
+    path('update_profile', views.update_profile, name='update_profile'),
+    path('users_profile_list', views.users_profile_list, name='users_profile_list')
 ]
