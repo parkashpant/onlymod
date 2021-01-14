@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'accounts',
-    'modprofile',
+    'userprofile',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -131,6 +131,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
 
-LOGIN_URL = '/accounts/user_login/'
+LOGIN_URL = '/accounts/login/'
 
 AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',) 

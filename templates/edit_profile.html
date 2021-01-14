@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body_block %}
+
+<div class="container">
+    <div class="jumbotron">
+        {% if profile_update %}
+        <h2>Thank you! Your profile has been updated.</h2>
+        <a href="userprofile/view_profile">Go Back to Profile!</a>
+        {% else %}
+        <h2>Please fill or update your profile.</h2>
+        <form enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="Submit">Submit</button>
+            <a href="view_profile"><input type="button" name="cancel" value="Cancel" /></a>
+        </form>
+        {% endif %}
+    </div>
+</div>
+  
+{% endblock %}
